@@ -76,7 +76,7 @@ let Addcontact = () => {
                                 <input type="text" className="form-control" placeholder="Gender" name="Gender" onChange={updateInput} value={info["Gender"]} required={true} />
                             </div>
                             <div className="mb-2">
-                                <input type="number" className="form-control" placeholder="mobile" name="Date of Birth" onChange={updateInput} value={info["Date of Birth"]} required={true} />
+                                <input type="date" className="form-control" placeholder="Date of Birth" name="Date of Birth" onChange={updateInput} value={info["Date of Birth"]} required={true} />
                             </div>
                             <div className="mb-2">
                                 <input type="email" className="form-control" placeholder="email" name="Email" onChange={updateInput} value={info["Email"]} required={true} />
