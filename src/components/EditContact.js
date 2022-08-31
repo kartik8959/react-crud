@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const EditContact = () => {
   let { id } = useParams();
-
+const url = "https://react-crud-json-server-heroku.herokuapp.com/empData"
   let navigate = useNavigate();
   const [info, setInfo] = useState({
     "First Name": "",
@@ -30,9 +30,8 @@ const EditContact = () => {
 
   const formSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:9000/empData/${id}`;
     try {
-      let response = await axios.put(url, info);
+      let response = await axios.put(`${url}/${id}`, info);
       console.log(response);
       if (response.status === 200) {
         navigate("/", { replace: true });
@@ -45,14 +44,14 @@ const EditContact = () => {
   useEffect(() => {
     (async function () {
       try {
-        const { data } = await axios.get(`http://localhost:9000/empData/${id}`);
+        const { data } = await axios.get(`${url}/${id}`);
         console.log(data);
         setInfo(data);
       } catch (e) {
         console.error(e);
       }
     })();
-  }, []);
+  }, [id]);
 
   return (
     <React.Fragment>

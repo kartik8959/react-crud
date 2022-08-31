@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 let Addcontact = () => {
+    const url = "https://react-crud-json-server-heroku.herokuapp.com/empData/"
     let navigate = useNavigate();
     const [info, setInfo] = useState(
         
@@ -36,7 +37,6 @@ let Addcontact = () => {
     const formSubmit=async(e)=>{
         e.preventDefault();
         console.log(info);
-const url="http://localhost:9000/empData/"
         try {
                     let response = await axios.post(url,info);
                     console.log(response)

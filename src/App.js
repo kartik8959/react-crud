@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import {Routes,Route,Navigate} from "react-router-dom";
+import {Routes,Route} from "react-router-dom";
 import Addcontact from "./components/addInfo/addcontact";
 import Home from "./components/Home/Home";
 import EditContact from "./components/EditContact";

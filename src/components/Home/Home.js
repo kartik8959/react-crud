@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";    
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Addcontact from "../addInfo/addcontact";
 
 const Home = () => {
+  const url = "https://react-crud-json-server-heroku.herokuapp.com/empData"
     const [info, setInfo] = useState([{
         id: "",
         "FirstName": "",
@@ -21,12 +21,10 @@ const Home = () => {
     
       
   let handleDelete = async(id)=>{
-    console.log(id);
 
-    const url = `http://localhost:9000/empData/${id}`;
     try {
-      let response = await axios.delete(url);
-      const { data } = await axios.get(`http://localhost:9000/empData`);
+      let response = await axios.delete(`${url}/${id}`);
+      const { data } = await axios.get(url);
       setInfo(data)
       console.log(response);
     } catch (error) {
@@ -43,7 +41,7 @@ const Home = () => {
 
       let getData=async function () {
         try {
-          const { data } = await axios.get(`http://localhost:9000/empData`);
+          const { data } = await axios.get(url);
           console.log(data);
           data.map((item, i) => setInfo(data));
         } catch (e) {
